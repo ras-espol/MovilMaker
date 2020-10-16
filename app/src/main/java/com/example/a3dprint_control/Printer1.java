@@ -102,7 +102,7 @@ public class Printer1 extends Activity {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
-      
+
 
         //FIN DEL CODIGO PARA OBTENER LAS RUTAS DE LOS ARCHIVOS
 

@@ -53,24 +53,35 @@ public class Ingresar extends Activity {
             String[] lista=resultadoConsulta.split("\n");
             lista[0]="Nombre,Contraseña,Correo,User_name";
             int contador=1;
+            boolean admi=true;
             boolean veridico=false;
             for(String dato: lista){
                 if(contador!=1){
                     String[] listaCompleta= dato.split(",");
                     if ((listaCompleta[2].equals(corr.getText().toString()))&&(listaCompleta[1].equals(contra.getText().toString()))&&(!(corr.getText().toString()).equals(""))&&(!(contra.getText().toString()).equals(""))){
                         veridico=true;
+                        //admi=listaCompleta[indice del atributo];
                     }
                 }else{
                     contador++;
                 }
             }
             if(veridico){
-                Toast.makeText(this,"Si existe el usuario", Toast.LENGTH_LONG).show();
-                Intent i4 = new Intent(this, Printers.class);
-                i4.putExtra("Correo",corr.getText().toString());
-                corr.setText("");
-                contra.setText("");
-                startActivity(i4);
+                if(admi) {
+                    Toast.makeText(this, "Si existe el administrador", Toast.LENGTH_LONG).show();
+                    Intent i4 = new Intent(this, PrintersAdmin.class);
+                    i4.putExtra("Correo", corr.getText().toString());
+                    corr.setText("");
+                    contra.setText("");
+                    startActivity(i4);
+                }else{
+                    Toast.makeText(this, "Si existe el usuario", Toast.LENGTH_LONG).show();
+                    Intent i5 = new Intent(this, Printers.class);
+                    i5.putExtra("Correo", corr.getText().toString());
+                    corr.setText("");
+                    contra.setText("");
+                    startActivity(i5);
+                }
             }else{
                 Toast.makeText(this,"Usuario no valido", Toast.LENGTH_LONG).show();
             }
