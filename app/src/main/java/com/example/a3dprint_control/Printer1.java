@@ -101,8 +101,8 @@ public class Printer1 extends Activity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
-                e.printStackTrace();
-
+            e.printStackTrace();
+        }
 
         //FIN DEL CODIGO PARA OBTENER LAS RUTAS DE LOS ARCHIVOS
 
